@@ -1,0 +1,48 @@
+.card {
+  border: 0px;
+}
+.card-img-top {
+  height: 100%;
+  width: 100vw;
+  border-radius: 20px !important;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1) !important;
+}
+.texr-color {
+  color: rgb(255, 132, 0);
+}
+.ol-font {
+  font-size: 20px;
+  opacity: 0.8;
+}
+.favorite-btn {
+  margin: 20px;
+  padding: auto;
+  background-color: white;
+}
+.favorite-btn i {
+  font-size: 24px;
+  color: rgb(255, 132, 0);
+}
+.ingredient-title {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+.ingredient-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.ingredient {
+  background-color: rgb(255, 132, 0);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.title-font {
+  font-family: "Playball", cursive;
+  font-style: normal;
+  color: black !important;
+}

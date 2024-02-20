@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row" *ngIf="loadData">
+    <div
+      class="col-12 col-md-4 mb-4"
+      *ngFor="let recipe of randomRecipes; trackBy: trackByFn"
+    >
+      <div class="card">
+        <div class="card-header">
+          <button
+            class="btn rounded-circle favorite-btn"
+            (click)="toggleFavorite(recipe)"
+          >
+            <i class="fa-regular fa-heart" *ngIf="!recipe.favorite"></i>
+            <i class="card-title fa fa-heart" *ngIf="recipe.favorite"></i>
+          </button>
+        </div>
+        <a
+          routerLink="/recipes/recipes/{{ recipe.id }}"
+          routerLinkActive="router-link-active"
+          class="link-product-add-cart"
+          ><img [src]="recipe.image" class="card-img-top" alt="Recipe Image"
+        /></a>
+
+        <div class="card-body">
+          <div class="d-flex justify-content-between align-items-center">
+            <h5 class="recipe-title mb-2 mt-2">{{ recipe.title }}</h5>
+          </div>
+          <p *ngIf="recipe.instructions"
+            class="card-text text-opacity"
+            [innerHTML]="recipe.instructions"
+          ></p>
+          <div class="card-details fade-text mt-2 pt-3">
+            <span class="card-title" *ngIf="recipe.readyInMinutes">
+              <i class="fa-regular fa-clock"></i>
+              {{ recipe.readyInMinutes }} mins
+            </span>
+            <span class="mx-2 card-title" *ngIf="recipe.aggregateLikes">
+              <i class="fa-regular fa-thumbs-up"></i>
+              {{ recipe.aggregateLikes }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+<div class="pagination justify-content-center">
+  <button *ngIf="currentPage !== 0" (click)="goToPage(currentPage - 1)" class="btn btn-primary mr-2">
+    <i class="fas fa-chevron-left"></i> Previous
+  </button>
+
+  <ng-container *ngFor="let pageNum of displayedPaginationButtons">
+    <button *ngIf="pageNum > 0 && pageNum !== '...'" [ngClass]="{'btn btn-primary': pageNum === currentPage + 1, 'btn btn-outline-primary': pageNum !== currentPage + 1}" (click)="goToPage(pageNum - 1)">
+      {{ pageNum }}
+    </button>
+  </ng-container>
+
+  <button *ngIf="currentPage !== paginationButtons.length - 1" (click)="goToPage(currentPage + 1)" class="btn btn-primary ml-2">
+    Next <i class="fas fa-chevron-right"></i>
+  </button>
+</div>
+
+  </div>
+  <app-spinner *ngIf="!loadData"></app-spinner>
+</div>
+

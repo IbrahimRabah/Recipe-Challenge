@@ -1,0 +1,43 @@
+.card {
+  position: relative;
+  border: 1px solid orange;
+}
+.recipe-title {
+  color: orange;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.card-text {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  line-height: 1.5;
+}
+.card-header {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border-radius: 50%;
+}
+.favorite-btn {
+  background-color: white;
+}
+.card-body {
+  height: 200px;
+  overflow: hidden;
+}
+.card-title {
+  color: orange;
+}
+.fade-text {
+  box-shadow: 0px -5px 5px -5px rgba(0, 0, 0, 0.75);
+}
+.text-opacity {
+  opacity: 0.6;
+}
+.card-details {
+  margin-top: 10px;
+}

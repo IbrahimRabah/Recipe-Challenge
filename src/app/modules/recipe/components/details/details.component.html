@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row" *ngIf="loadData">
+    <div class="col-xxl-7 card">
+      <button
+        class="btn rounded-circle favorite-btn position-absolute top-0 end-0"
+        (click)="toggleFavorite(recipeDetails)"
+      >
+        <i class="fa-regular fa-heart" *ngIf="!recipeDetails.favorite"></i>
+        <i class="card-title fa fa-heart" *ngIf="recipeDetails.favorite"></i>
+      </button>
+      <img
+        [src]="recipeDetails.image"
+        class="card-img-top"
+        style="height: 100%; width: 100%"
+        alt="Recipe Image"
+      />
+    </div>
+    <div class="col-xxl-5">
+      <h2 class="title-font">{{ recipeDetails.title }}</h2>
+      <h5>
+        <span class="texr-color">${{ recipeDetails.pricePerServing }}</span>
+        /per serving
+      </h5>
+      <p class="card-text text-opacity" [innerHTML]="recipeDetails.summary"></p>
+      <div class="card-details fade-text mt-2 pt-3">
+        <h3 class="card-title title-font p-2">Ingredients</h3>
+        <div class="ingredient-list">
+          <span
+            *ngFor="let Ingredient of recipeDetails.extendedIngredients"
+            class="ingredient"
+            >{{ Ingredient.nameClean }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col-md-12">
+      <h2 class="title-font">Instructions</h2>
+      <p class="ol-font" [innerHTML]="instructions"></p>
+    </div>
+  </div>
+  <app-spinner *ngIf="!loadData"></app-spinner>
+</div>

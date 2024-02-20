@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">
+      <img
+        src="../../../assets/images/RecipesLogo.jpg"
+        alt="Recipes Logo"
+        height="70"
+        width="100"
+        class="d-inline-block align-top"
+      />
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item mr-3" routerLinkActive="active">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/recipes/recipes"
+          >
+            Recipes
+          </a>
+        </li>
+        <li class="nav-item mr-3">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            routerLink="/recipes/favorites"
+          >
+            Favourites
+          </a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <div class="input-group">
+          <span class="input-group-text"><i class="fas fa-search"></i></span>
+          <input
+            class="form-control mr-sm-2 search-text"
+            type="search"
+            placeholder="Search"
+            name="search"
+            aria-label="Search"
+            [(ngModel)]="searchKeyword"
+            (keyup.enter)="searchRecipes()"
+          />
+          <button
+            class="btn btn-outline-success my-2 my-sm-0 search-text"
+            type="submit"
+            (click)="searchRecipes()"
+          >
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</nav>
